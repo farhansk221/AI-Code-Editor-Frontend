@@ -10,7 +10,7 @@ function App() {
   const [resultMode, setResultMode] = useState(null);
   const [error, setError] = useState(null);
 
-  const API_URL = process.env.REACT_APP_API_URL || 'https://ai-code-editor-4ia9.onrender.com';
+  const API_URL = process.env.REACT_APP_API_URL || 'https://ai-code-editor-4ia9.onrender.com/';
   
   // Helper function to construct API URL properly
   const getApiUrl = (endpoint) => {
