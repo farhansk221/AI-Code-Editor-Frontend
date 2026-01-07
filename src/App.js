@@ -10,7 +10,7 @@ function App() {
   const [resultMode, setResultMode] = useState(null);
   const [error, setError] = useState(null);
 
-  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:4000';
+  const API_URL = process.env.REACT_APP_API_URL || 'https://ai-code-editor-4ia9.onrender.com';
   
   const handleAction = async (mode) => {
     if (!code.trim()) {
@@ -25,7 +25,7 @@ function App() {
     setResultMode(null);
 
     try {
-      const response = await fetch(`${API_URL}/api/review`, {
+      const response = await fetch(`${API_URL}api/review`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
