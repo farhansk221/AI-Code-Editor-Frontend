@@ -10,8 +10,15 @@ function App() {
   const [resultMode, setResultMode] = useState(null);
   const [error, setError] = useState(null);
 
-  const API_URL = process.env.REACT_APP_API_URL || 'https://ai-code-editor-4ia9.onrender.com/';
+  const API_URL = process.env.REACT_APP_API_URL || 'https://ai-code-editor-4ia9.onrender.com';
   
+  // Helper function to construct API URL properly
+  const getApiUrl = (endpoint) => {
+    const baseUrl = API_URL.replace(/\/+$/, ''); // Remove trailing slashes
+    const path = endpoint.startsWith('/') ? endpoint : `/${endpoint}`;
+    return `${baseUrl}${path}`;
+  };
+
   const handleAction = async (mode) => {
     if (!code.trim()) {
       setError('Please enter some code');
@@ -25,7 +32,7 @@ function App() {
     setResultMode(null);
 
     try {
-      const response = await fetch(`${API_URL}/api/review`, {
+      const response = await fetch(getApiUrl('api/review'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
