@@ -32,7 +32,7 @@ function App() {
     setResultMode(null);
 
     try {
-      const response = await fetch(getApiUrl('api/review'), {
+      const response = await fetch(getApiUrl('/api/review'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
